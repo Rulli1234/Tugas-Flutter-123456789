@@ -14,6 +14,7 @@ class _LayoutLatihanState extends State<LayoutLatihan> {
   int umur = 25;
   String hobi = "Catur";
   String deksripsi = " Saya seorang freshgraduate yang akan memulai karir di bidang IT, sedang belajar flutter. dan saya memiliki keahlian dibidang Teknisi AC, Teknisi CCTV, dan Teknisi Listrik";
+  String Cinta = " Cintai dirimu sendiri Sebelum mencintai orang lain";
 
   Widget build(BuildContext context) {
     // Mendapatkan ukuran layar agar bisa responsif
@@ -47,7 +48,7 @@ class _LayoutLatihanState extends State<LayoutLatihan> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(Icons.location_on,),
-                      Text("PPKD JAKARTA PUSAT")
+                      Text("PPKD JAKARTA PUSAT BANGET")
                     ],
                   ),
                   _buildInfoRow(label: "deksripsi", value: deksripsi),
@@ -60,7 +61,10 @@ class _LayoutLatihanState extends State<LayoutLatihan> {
                         umur = 25;
                         hobi = "Catur";
                         deksripsi = " Saya seorang freshgraduade yang akan memulai karir di bidang IT, sedang belajar flutter. dan saya memiliki keahlian dibidang Teknisi AC, Teknisi CCTV, dan Teknisi Listrik";
+                        Cinta = " Cintai dirimu sendiri Sebelum mencintai orang lain";
+
                       });
+                      
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 228, 209, 181),

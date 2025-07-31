@@ -13,7 +13,7 @@ class _LayoutLatihanState extends State<LayoutLatihan> {
   String nama = "M. Khoerulliansyah";
   int umur = 25;
   String hobi = "Catur";
-  String deksripsi = " Saya seorang freshgraduade yang akan memulai karir di bidang IT, sedang belajar flutter. dan saya memiliki keahlian dibidang Teknisi AC, Teknisi CCTV, dan Teknisi Listrik";
+  String deksripsi = " Saya seorang freshgraduate yang akan memulai karir di bidang IT, sedang belajar flutter. dan saya memiliki keahlian dibidang Teknisi AC, Teknisi CCTV, dan Teknisi Listrik";
 
   Widget build(BuildContext context) {
     // Mendapatkan ukuran layar agar bisa responsif

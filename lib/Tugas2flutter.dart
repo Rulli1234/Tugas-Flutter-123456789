@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_b_3/tugas3dan4/tugas3flutter.dart';
 
 class Tugas2 extends StatelessWidget {
   const Tugas2({super.key});
@@ -11,6 +12,15 @@ class Tugas2 extends StatelessWidget {
         Text("COMPANY PROFIL SAYA"),
         actions: [Icon(Icons.favorite, color: const Color.fromARGB(255, 2, 4, 36),),],
         backgroundColor: const Color.fromARGB(255, 90, 3, 231), 
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Tugas3Widget()),
+          );
+        },
+        child: Icon(Icons.arrow_right_outlined),
       ),
       body: Column(
         crossAxisAlignment:CrossAxisAlignment.start,

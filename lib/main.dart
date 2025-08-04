@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_b_3/Tugas2flutter.dart';
 import 'package:ppkd_b_3/star.dart';
 
 void main() {
@@ -31,7 +32,9 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 58, 183, 85)),
       ),
-      home: LayoutLatihan()
+      home: Tugas2(),
+      
+
     );
   }
 }     

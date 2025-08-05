@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:ppkd_b_3/tugas3dan4/tugas4.dart';
+
 class Tugas3Widget extends StatelessWidget {
   Tugas3Widget({super.key});
   final TextEditingController namaController = TextEditingController();
@@ -13,6 +15,15 @@ class Tugas3Widget extends StatelessWidget {
       appBar: AppBar(
         title: Text('Formulir & Galeri'),
         backgroundColor: Colors.lightBlueAccent,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MyWidget()),
+          );
+        },
+        child: Icon(Icons.arrow_right_outlined),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),

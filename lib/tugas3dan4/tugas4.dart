@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:ppkd_b_3/tugas5/main.dart';
+
 class MyWidget extends StatelessWidget {
   const MyWidget({super.key});
 
@@ -29,12 +31,12 @@ class MyWidget extends StatelessWidget {
         "deskripsi":"Refrigeran AC.",
         "gambar": "assets/images/refrigerantR22.jpeg",
       },
-      {
-        "namaproduk": "Tang Ampere",
-        "harga": "150.000",
-        "deskripsi": "Tang ampere.",
-        "gambar": "assets/images/TangAmpere.jpeg",
-      },
+      // {
+      //   "namaproduk": "Tang Ampere",
+      //   "harga": "150.000",
+      //   "deskripsi": "Tang ampere.",
+      //   "gambar": "assets/images/TangAmpere.jpeg",
+      // },
     ];
 
     return Scaffold(
@@ -65,6 +67,15 @@ class MyWidget extends StatelessWidget {
             child: Icon(Icons.more_vert, size: 24, color: Colors.white),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Tugas5()),
+          );
+        },
+        child: Icon(Icons.arrow_right_outlined),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(8),

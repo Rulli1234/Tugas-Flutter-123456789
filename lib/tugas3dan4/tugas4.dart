@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:ppkd_b_3/tugas5/main.dart';
+import 'package:ppkd_b_3/tugas5/tugas5.dart';
 
 class MyWidget extends StatelessWidget {
   const MyWidget({super.key});

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_b_3/tugas6flutter.dart';
 
 class Tugas5 extends StatefulWidget {
   const Tugas5({super.key});
@@ -16,19 +17,26 @@ class _Tugas5State extends State<Tugas5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("BUTTON"), backgroundColor: const Color.fromARGB(255, 156, 6, 119)),
+      appBar: AppBar(
+        title: Text("BUTTON"),
+        backgroundColor: const Color.fromARGB(255, 156, 6, 119),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Text("Nambah berapa porsi $counter");
-          setState(() {
-            counter++;
-            //  print("Nambah berapa porsi $counter");
-          });
-          // print("Nambah berapa porsi $counter");
+          // Text("Nambah berapa porsi $counter");
+          // setState(() {
+          //   counter++;
+          //   //  print("Nambah berapa porsi $counter");
+          // });
+          // // print("Nambah berapa porsi $counter");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => RegisterWidget()),
+          );
         },
         child: Icon(Icons.person_add),
       ),
-    
+
       body: Column(
         children: [
           Padding(
@@ -63,7 +71,9 @@ class _Tugas5State extends State<Tugas5> {
               });
             },
             icon: Icon(Icons.favorite),
-            color: showLiked ? const Color.fromARGB(255, 243, 136, 13) : const Color.fromARGB(255, 6, 206, 233),
+            color: showLiked
+                ? const Color.fromARGB(255, 243, 136, 13)
+                : const Color.fromARGB(255, 6, 206, 233),
           ),
           if (showLiked) Text("Disukai"),
           SizedBox(height: 20),
@@ -97,16 +107,13 @@ class _Tugas5State extends State<Tugas5> {
                 height: 75,
                 alignment: Alignment.center,
                 // child: Image.asset("assets/images/kanan.jfif"),
-                child: 
-                showBoxtext
-                ? Text("Waw", style: TextStyle(
-                  fontWeight: FontWeight.bold
-                ),)
-                : SizedBox.shrink()   
+                child: showBoxtext
+                    ? Text("Waw", style: TextStyle(fontWeight: FontWeight.bold))
+                    : SizedBox.shrink(),
               ),
             ),
           ),
-          SizedBox(height: 20), 
+          SizedBox(height: 20),
           GestureDetector(
             onTap: () {
               print("Ditekan sekali");

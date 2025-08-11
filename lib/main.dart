@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_3/Tugas2flutter.dart';
-import 'package:ppkd_b_3/star.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:ppkd_b_3/tugas7/main_screen.dart';
 
 void main() {
+  initializeDateFormatting("id_ID");
   runApp(const MyApp());
 }
 
@@ -30,11 +31,11 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 58, 183, 85)),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 58, 183, 85),
+        ),
       ),
-      home: Tugas2(),
-      
-
+      home: MainScreen(),
     );
   }
-}     
+}

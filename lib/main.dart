@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:ppkd_b_3/tugas7/main_screen.dart';
+import 'package:ppkd_b_3/tugas8/botnav.dart';
 
 void main() {
   initializeDateFormatting("id_ID");
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           seedColor: const Color.fromARGB(255, 58, 183, 85),
         ),
       ),
-      home: MainScreen(),
+      home: Tugas8(),
     );
   }
 }

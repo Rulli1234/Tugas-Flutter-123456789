@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_b_3/extensions/navigator.dart';
+import 'package:ppkd_b_3/tugas%209/list.dart';
+import 'package:ppkd_b_3/tugas%209/map.dart';
+import 'package:ppkd_b_3/tugas%209/model.dart';
 import 'package:ppkd_b_3/tugas7/checkbox.dart';
 import 'package:ppkd_b_3/tugas7/jam.dart';
 import 'package:ppkd_b_3/tugas7/switch.dart';
@@ -20,7 +23,9 @@ class _MainScreenState extends State<MainScreen> {
     Jam(),
     Center(child: Text("Halaman 3")),
     Switch1(),
-    Switch1(),
+    Day14ListOnListViewBuilder(),
+    Map1(),
+    Model1(),
   ];
   void onItemTap(int index) {
     setState(() {
@@ -71,7 +76,25 @@ class _MainScreenState extends State<MainScreen> {
             ListTile(
               title: Text("Switch"),
               onTap: () {
+                onItemTap(4);
+              },
+            ),
+            ListTile(
+              title: Text("List"),
+              onTap: () {
                 onItemTap(5);
+              },
+            ),
+            ListTile(
+              title: Text("List Map"),
+              onTap: () {
+                onItemTap(6);
+              },
+            ),
+            ListTile(
+              title: Text("Model"),
+              onTap: () {
+                onItemTap(7);
               },
             ),
           ],

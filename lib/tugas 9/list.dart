@@ -63,7 +63,8 @@ class _Day14ListOnListViewBuilderState
             itemCount: namaObat.length,
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
-                title: Text(namaObat[index]),
+                title: Text("Test"),
+                subtitle: Text(namaObat[index]),
                 leading: CircleAvatar(child: Text("${index + 1}")),
               );
             },

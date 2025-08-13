@@ -31,30 +31,49 @@ class _Day15ParsingDataState extends State<Day15ParsingData> {
               onChanged: (p0) {
                 setState(() {});
               },
-              decoration: InputDecoration(hintText: '', labelText: ''),
+              decoration: InputDecoration(
+                hintText: 'Masukkan Nama Lengkap',
+                labelText: 'Nama',
+              ),
             ),
             TextFormField(
               controller: emailController,
               onChanged: (p0) {
                 setState(() {});
               },
+              decoration: InputDecoration(
+                hintText: 'Masukkan Email',
+                labelText: 'Email',
+              ),
             ),
             TextFormField(
               controller: phoneController,
               onChanged: (p0) {
                 setState(() {});
               },
+              decoration: InputDecoration(
+                hintText: 'Masukkan Nomor Telepon',
+                labelText: 'Nomor Telepon',
+              ),
             ),
             TextFormField(
               controller: alamatController,
               onChanged: (p0) {
                 setState(() {});
               },
+              decoration: InputDecoration(
+                hintText: 'Alamat Lengkap',
+                labelText: 'Alamat',
+              ),
             ),
 
             Text(
               emailController.text,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             Text(
               phoneController.text,

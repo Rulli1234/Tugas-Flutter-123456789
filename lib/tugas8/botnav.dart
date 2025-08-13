@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_b_3/tugas10/homea.dart';
 import 'package:ppkd_b_3/tugas7/main_screen.dart';
 import 'package:ppkd_b_3/tugas8/tentang.dart';
 
@@ -15,6 +16,7 @@ class _Tugas8State extends State<Tugas8> {
   static const List<Widget> _widgetOptions = <Widget>[
     MainScreen(),
     AboutAppPage(),
+    Day15ParsingData(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class _Tugas8State extends State<Tugas8> {
             icon: Icon(Icons.info_outline),
             label: 'Tentang',
           ),
+          BottomNavigationBarItem(icon: Icon(Icons.person_2), label: 'Form'),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,

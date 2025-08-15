@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_3/tugas6flutter.dart';
+import 'package:ppkd_b_3/register.dart';
 
 class Tugas5 extends StatefulWidget {
   const Tugas5({super.key});

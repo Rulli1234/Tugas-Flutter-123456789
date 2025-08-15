@@ -3,6 +3,7 @@ import 'package:ppkd_b_3/extensions/navigator.dart';
 import 'package:ppkd_b_3/tugas%209/list.dart';
 import 'package:ppkd_b_3/tugas%209/map.dart';
 import 'package:ppkd_b_3/tugas%209/model.dart';
+import 'package:ppkd_b_3/tugas10/homea.dart';
 import 'package:ppkd_b_3/tugas7/checkbox.dart';
 import 'package:ppkd_b_3/tugas7/jam.dart';
 import 'package:ppkd_b_3/tugas7/switch.dart';
@@ -26,6 +27,7 @@ class _MainScreenState extends State<MainScreen> {
     Day14ListOnListViewBuilder(),
     Map1(),
     Model1(),
+    Day15ParsingData(),
   ];
   void onItemTap(int index) {
     setState(() {
@@ -95,6 +97,12 @@ class _MainScreenState extends State<MainScreen> {
               title: Text("Model"),
               onTap: () {
                 onItemTap(7);
+              },
+            ),
+            ListTile(
+              title: Text("Day15ParsingData"),
+              onTap: () {
+                onItemTap(8);
               },
             ),
           ],

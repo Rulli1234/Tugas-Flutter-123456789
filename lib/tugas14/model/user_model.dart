@@ -4,71 +4,70 @@
 
 import 'dart:convert';
 
-List<GetUserModel> welcomeFromJson(String str) => List<GetUserModel>.from(
-  json.decode(str).map((x) => GetUserModel.fromJson(x)),
-);
+List<Welcome> welcomeFromJson(String str) =>
+    List<Welcome>.from(json.decode(str).map((x) => Welcome.fromJson(x)));
 
-String welcomeToJson(List<GetUserModel> data) =>
+String welcomeToJson(List<Welcome> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class GetUserModel {
-  String id;
-  String symbol;
-  String name;
-  String image;
-  double currentPrice;
-  double marketCap;
-  int marketCapRank;
-  double fullyDilutedValuation;
+class Welcome {
+  String? id;
+  String? symbol;
+  String? name;
+  String? image;
+  double? currentPrice;
+  double? marketCap;
+  int? marketCapRank;
+  double? fullyDilutedValuation;
   int? totalVolume;
-  double high24H;
-  double low24H;
-  double priceChange24H;
-  double priceChangePercentage24H;
-  double marketCapChange24H;
-  double marketCapChangePercentage24H;
-  double circulatingSupply;
-  double totalSupply;
+  double? high24H;
+  double? low24H;
+  double? priceChange24H;
+  double? priceChangePercentage24H;
+  double? marketCapChange24H;
+  double? marketCapChangePercentage24H;
+  double? circulatingSupply;
+  double? totalSupply;
   double? maxSupply;
-  double ath;
-  double athChangePercentage;
-  DateTime athDate;
-  double atl;
-  double atlChangePercentage;
-  DateTime atlDate;
+  double? ath;
+  double? athChangePercentage;
+  DateTime? athDate;
+  double? atl;
+  double? atlChangePercentage;
+  DateTime? atlDate;
   Roi? roi;
-  DateTime lastUpdated;
+  DateTime? lastUpdated;
 
-  GetUserModel({
-    required this.id,
-    required this.symbol,
-    required this.name,
-    required this.image,
-    required this.currentPrice,
-    required this.marketCap,
-    required this.marketCapRank,
-    required this.fullyDilutedValuation,
-    required this.totalVolume,
-    required this.high24H,
-    required this.low24H,
-    required this.priceChange24H,
-    required this.priceChangePercentage24H,
-    required this.marketCapChange24H,
-    required this.marketCapChangePercentage24H,
-    required this.circulatingSupply,
-    required this.totalSupply,
-    required this.maxSupply,
-    required this.ath,
-    required this.athChangePercentage,
-    required this.athDate,
-    required this.atl,
-    required this.atlChangePercentage,
-    required this.atlDate,
-    required this.roi,
-    required this.lastUpdated,
+  Welcome({
+    this.id,
+    this.symbol,
+    this.name,
+    this.image,
+    this.currentPrice,
+    this.marketCap,
+    this.marketCapRank,
+    this.fullyDilutedValuation,
+    this.totalVolume,
+    this.high24H,
+    this.low24H,
+    this.priceChange24H,
+    this.priceChangePercentage24H,
+    this.marketCapChange24H,
+    this.marketCapChangePercentage24H,
+    this.circulatingSupply,
+    this.totalSupply,
+    this.maxSupply,
+    this.ath,
+    this.athChangePercentage,
+    this.athDate,
+    this.atl,
+    this.atlChangePercentage,
+    this.atlDate,
+    this.roi,
+    this.lastUpdated,
   });
 
-  factory GetUserModel.fromJson(Map<String, dynamic> json) => GetUserModel(
+  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
     id: json["id"],
     symbol: json["symbol"],
     name: json["name"],
@@ -90,12 +89,14 @@ class GetUserModel {
     maxSupply: json["max_supply"]?.toDouble(),
     ath: json["ath"]?.toDouble(),
     athChangePercentage: json["ath_change_percentage"]?.toDouble(),
-    athDate: DateTime.parse(json["ath_date"]),
+    athDate: json["ath_date"] == null ? null : DateTime.parse(json["ath_date"]),
     atl: json["atl"]?.toDouble(),
     atlChangePercentage: json["atl_change_percentage"]?.toDouble(),
-    atlDate: DateTime.parse(json["atl_date"]),
+    atlDate: json["atl_date"] == null ? null : DateTime.parse(json["atl_date"]),
     roi: json["roi"] == null ? null : Roi.fromJson(json["roi"]),
-    lastUpdated: DateTime.parse(json["last_updated"]),
+    lastUpdated: json["last_updated"] == null
+        ? null
+        : DateTime.parse(json["last_updated"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -119,51 +120,31 @@ class GetUserModel {
     "max_supply": maxSupply,
     "ath": ath,
     "ath_change_percentage": athChangePercentage,
-    "ath_date": athDate.toIso8601String(),
+    "ath_date": athDate?.toIso8601String(),
     "atl": atl,
     "atl_change_percentage": atlChangePercentage,
-    "atl_date": atlDate.toIso8601String(),
+    "atl_date": atlDate?.toIso8601String(),
     "roi": roi?.toJson(),
-    "last_updated": lastUpdated.toIso8601String(),
+    "last_updated": lastUpdated?.toIso8601String(),
   };
 }
 
 class Roi {
-  double times;
-  Currency currency;
-  double percentage;
+  double? times;
+  String? currency;
+  double? percentage;
 
-  Roi({required this.times, required this.currency, required this.percentage});
+  Roi({this.times, this.currency, this.percentage});
 
   factory Roi.fromJson(Map<String, dynamic> json) => Roi(
     times: json["times"]?.toDouble(),
-    currency: currencyValues.map[json["currency"]]!,
+    currency: json["currency"],
     percentage: json["percentage"]?.toDouble(),
   );
 
   Map<String, dynamic> toJson() => {
     "times": times,
-    "currency": currencyValues.reverse[currency],
+    "currency": currency,
     "percentage": percentage,
   };
-}
-
-enum Currency { BTC, ETH, USD }
-
-final currencyValues = EnumValues({
-  "btc": Currency.BTC,
-  "eth": Currency.ETH,
-  "usd": Currency.USD,
-});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    reverseMap = map.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
 }

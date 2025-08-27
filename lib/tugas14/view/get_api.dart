@@ -14,8 +14,8 @@ class Day23GetAPIScreen extends StatefulWidget {
 
 class _Day23GetAPIScreenState extends State<Day23GetAPIScreen> {
   final TextEditingController _searchController = TextEditingController();
-  List<GetUserModel> _allUsers = [];
-  List<GetUserModel> _filteredUsers = [];
+  List<Welcome> _allUsers = [];
+  List<Welcome> _filteredUsers = [];
 
   @override
   void initState() {
@@ -53,41 +53,50 @@ class _Day23GetAPIScreenState extends State<Day23GetAPIScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Get API with Search")),
-      body: Column(
-        children: [
-          // Search Field
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _searchController,
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                hintText: "Cari user berdasarkan nama atau id...",
-                border: OutlineInputBorder(),
-              ),
-            ),
-          ),
-          Expanded(
-            child: _allUsers.isEmpty
-                ? const Center(child: CircularProgressIndicator())
-                : _filteredUsers.isEmpty
-                ? const Center(child: Text("Tidak ada hasil"))
-                : ListView.builder(
-                    itemCount: _filteredUsers.length,
-                    itemBuilder: (context, index) {
-                      final dataUser = _filteredUsers[index];
-                      return ListTile(
-                        onTap: () {
-                          context.push(ListDetail(getUserModel: dataUser));
-                        },
-                        leading: Image.network(dataUser.image ?? ""),
-                        title: Text(dataUser.name ?? "-"),
-                        subtitle: Text(dataUser.id ?? "-"),
+
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            FutureBuilder<List<Welcome>>(
+              future: getUser(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return CircularProgressIndicator();
+                } else if (snapshot.hasData) {
+                  final characters = snapshot.data as List<Welcome>;
+                  return ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: characters.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final dataCharacter = characters[index];
+                      return Card(
+                        color: Colors.blue.shade100,
+                        child: ListTile(
+                          onTap: () {
+                            context.push(DetailScreen(anime: dataCharacter));
+                          },
+                          leading: Image.network(
+                            dataCharacter.image ?? "",
+                            errorBuilder: (context, error, stackTrace) {
+                              return CircleAvatar();
+                            },
+                          ),
+                          title: Text(dataCharacter.name ?? ""),
+                          subtitle: Text(
+                            "${dataCharacter.currentPrice} " ?? "",
+                          ),
+                        ),
                       );
                     },
-                  ),
-          ),
-        ],
+                  );
+                } else {
+                  return Text("Gagal memuat data");
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-// import 'package:ppkd_b_3/day_23/model/user_model.dart';
+// import 'package:ppkd_b_3/day_23/model/user_model.  dart';
 import 'package:ppkd_b_3/tugas14/model/user_model.dart';
 
 Future<List<GetUserModel>> getUser() async {
   final response = await http.get(
-    Uri.parse("https://api.coingecko.com/api/v3/coins/markets?vs_currency=idr"),
+    Uri.parse("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"),
   );
   print(response.body);
   if (response.statusCode == 200) {

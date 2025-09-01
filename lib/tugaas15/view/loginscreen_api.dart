@@ -227,7 +227,7 @@ class _LoginAPIScreenState extends State<LoginAPIScreen> {
                   ),
                   TextButton(
                     onPressed: () {
-                      context.push(ApiScreen());
+                      context.pushNamed(ApiScreen.id);
                       // Navigator.pushReplacement(
                       //   context,
                       //   MaterialPageRoute(builder: (context) => MeetEmpatA()),
@@ -256,7 +256,10 @@ class _LoginAPIScreenState extends State<LoginAPIScreen> {
       height: double.infinity,
       width: double.infinity,
       decoration: const BoxDecoration(
-        image: DecorationImage(image: AssetImage(""), fit: BoxFit.cover),
+        image: DecorationImage(
+          image: AssetImage("assets/images/bankground_hijau.jpg"),
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

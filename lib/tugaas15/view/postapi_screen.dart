@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_b_3/tugaas15/api/registeruser.dart';
 import 'package:ppkd_b_3/tugaas15/model/register_model.dart';
 import 'package:ppkd_b_3/tugaas15/preference/shared_preference.dart';
+import 'package:ppkd_b_3/tugaas15/view/loginscreen_api.dart';
 
 class ApiScreen extends StatefulWidget {
   const ApiScreen({super.key});
-  static const id = '/post_api_screen';
+  static const id = '/register_api';
   @override
   State<ApiScreen> createState() => _ApiScreenState();
 }
@@ -190,7 +191,7 @@ class _ApiScreenState extends State<ApiScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        "assets/images/google_logo.png",
+                        "assets/images/google.png",
                         height: 16,
                         width: 16,
                       ),
@@ -216,10 +217,12 @@ class _ApiScreenState extends State<ApiScreen> {
                   ),
                   TextButton(
                     onPressed: () {
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => MeetEmpatA()),
-                      // );
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginAPIScreen(),
+                        ),
+                      );
                     },
                     child: Text(
                       "Sign Up",
@@ -245,7 +248,7 @@ class _ApiScreenState extends State<ApiScreen> {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/background_pinky.jpg"),
+          image: AssetImage("assets/images/bankground_hijau.jpg"),
           fit: BoxFit.cover,
         ),
       ),

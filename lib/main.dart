@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:ppkd_b_3/tugaas15/view/loginscreen_api.dart';
 import 'package:ppkd_b_3/tugaas15/view/postapi_screen.dart';
 
 void main() {
@@ -35,7 +36,20 @@ class MyApp extends StatelessWidget {
           seedColor: const Color.fromARGB(255, 58, 183, 85),
         ),
       ),
-      home: ApiScreen(),
+
+      initialRoute: '/',
+      routes: {
+        'login_api': (context) => const LoginAPIScreen(),
+        '/register_api': (context) => const ApiScreen(),
+        // '/splash_screen': (context) => const SplashScreen(),
+        // '/login_futsal': (context) => const LoginFutsal(),
+        // '/register_futsal': (context) => const RegisterFutsal(),
+        // '/home_futsal': (context) => const Home(),
+        // '/bot': (context) => Bottom(),
+        // '/lapangan': (context) => LapanganScreen(),
+      },
+      // home: LoginFutsal(),
+      home: LoginAPIScreen(),
     );
   }
 }

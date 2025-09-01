@@ -248,7 +248,7 @@ class _ApiScreenState extends State<ApiScreen> {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/bankground_hijau.jpg"),
+          image: AssetImage("assets/images/kamarhotel.jpg"),
           fit: BoxFit.cover,
         ),
       ),
